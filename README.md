@@ -12,8 +12,8 @@ Click **PRESENT** (bottom right) to go fullscreen. Browsers require that click, 
 
 | Key | Action |
 | --- | --- |
-| Right arrow / Space | Finish the current slide's build, then go to the next slide |
-| Left arrow | Previous slide |
+| Right arrow / Space | Next slide — its authored animation plays from the start |
+| Left arrow | Previous slide — its animation replays from the start |
 | Esc | Leave fullscreen / present mode |
 
 Clicking the right side of the screen while presenting advances; the far left goes back.
