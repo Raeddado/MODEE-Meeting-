@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#04101F;}
+a{color:#35DCE2;text-decoration:none}
+a:hover{color:#7FE3E8}
+@keyframes aUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes aFade{from{opacity:0}to{opacity:1}}
+@keyframes aScale{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+@keyframes aSheet{from{opacity:0;transform:translateY(115%)}to{opacity:1;transform:none}}
+@keyframes aDraw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes aFlow{from{stroke-dashoffset:48}to{stroke-dashoffset:0}}
+@keyframes aPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
+@media (prefers-reduced-motion:no-preference){
+deck-stage section:not([data-deck-active]) [data-anim]{opacity:0}
+deck-stage [data-deck-active] [data-anim="up"]{animation:aUp .85s cubic-bezier(.2,.75,.25,1) both;animation-delay:var(--d,0s)}
+deck-stage [data-deck-active] [data-anim="fade"]{animation:aFade .9s ease both;animation-delay:var(--d,0s)}
+deck-stage [data-deck-active] [data-anim="scale"]{animation:aScale .8s cubic-bezier(.2,.75,.25,1) both;animation-delay:var(--d,0s)}
+deck-stage [data-deck-active] [data-anim="sheet"]{animation:aSheet .9s cubic-bezier(.16,.84,.3,1) both;animation-delay:var(--d,0s)}
+deck-stage [data-deck-active] [data-anim="draw"]{animation:aDraw 1.1s ease both;animation-delay:var(--d,0s)}
+deck-stage [data-deck-active] [data-anim="flow"]{animation:aFade .6s ease both,aFlow 1.3s linear infinite;animation-delay:var(--d,0s),var(--d,0s)}
+deck-stage [data-deck-active] [data-anim="pulse"]{animation:aFade .6s ease both,aPulse 2.4s ease-in-out infinite;animation-delay:var(--d,0s),var(--d,0s)}
+}
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Cover" data-screen-label="Cover" data-speaker-notes="Hold here while the room settles. One line of framing: this is a short briefing on infrastructure that is already operating, and the practical model for taking it national." style="background:radial-gradient(1400px 800px at 78% 10%,rgba(16,123,192,.28),transparent 62%),radial-gradient(900px 620px at 4% 104%,rgba(0,179,186,.12),transparent 62%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden">
+  <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 110px">
+    <svg viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none">
+      <g stroke="rgba(53,220,226,.24)" stroke-width="1" fill="none">
+        <path data-anim="draw" style="--d:.5s" pathLength="100" stroke-dasharray="100" d="M1180 210L1470 140 1730 255 1630 515 1790 700 1500 830 1240 705 1180 435Z"></path>
+        <path data-anim="draw" style="--d:.75s" pathLength="100" stroke-dasharray="100" d="M1180 435L1470 140M1180 435L1630 515M1240 705L1630 515M1470 140L1630 515M1180 210L1240 705M1630 515L1500 830"></path>
+      </g>
+      <g fill="#35DCE2" opacity=".6" data-anim="fade" style="--d:1.1s">
+        <circle cx="1180" cy="210" r="4"></circle><circle cx="1470" cy="140" r="4"></circle><circle cx="1730" cy="255" r="4"></circle><circle cx="1630" cy="515" r="6"></circle><circle cx="1790" cy="700" r="4"></circle><circle cx="1500" cy="830" r="4"></circle><circle cx="1240" cy="705" r="4"></circle><circle cx="1180" cy="435" r="6"></circle>
+      </g>
+    </svg>
+    <div style="position:relative">
+      <img data-anim="up" style="--d:.1s;height:58px;width:auto;display:block;margin-bottom:64px" src="assets/edamana-logo.svg" alt="eDamana">
+      <div data-anim="up" style="--d:.24s;font-size:28px;letter-spacing:.3em;font-weight:700;color:#35DCE2;margin-bottom:34px">SECURE TRANSACTION INFRASTRUCTURE</div>
+      <div data-anim="up" style="--d:.34s;font-size:68px;line-height:1.14;letter-spacing:-.02em;font-weight:300;color:#fff;max-width:1180px">
+
+
+
+<p class="p1"><b><b>A Proven Model for Secure Digital Ownership Transactions in Jordan</b></b></p></div>
+      <div data-anim="fade" style="--d:.6s;margin-top:48px;display:flex;align-items:center;gap:20px">
+        <span style="font-size: 34px; font-weight: 600; color: rgb(203, 220, 236);">Vehicles today. Real estate next.</span>
+      </div>
+    </div>
+  </div>
+  <div data-anim="fade" style="--d:.8s;flex:none;display:flex;align-items:flex-end;justify-content:space-between;gap:80px;padding:38px 110px 62px;margin:0 110px;border-top:1px solid rgba(255,255,255,.14);padding-left:0;padding-right:0">
+    <div>
+      
+      <div style="font-size:30px;color:#CBDCEC">17 September 2026</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:24px;letter-spacing:.18em;font-weight:700;color:#7E99B6;margin-bottom:16px">PREPARED FOR</div>
+      <div style="font-size:36px;font-weight:600;letter-spacing:-.01em">H.E. Eng. Sami Smeirat</div>
+      <div style="font-size:29px;color:#9BB3CB;margin-top:10px">Minister of Digital Economy and Entrepreneurship</div>
+      <div style="font-size:29px;color:#8FA9C4;margin-top:4px">Hashemite Kingdom of Jordan</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="One infrastructure" data-screen-label="02" data-speaker-notes="Open here. eDamana is one transaction infrastructure, not an application. Four participant groups converge on it: citizens, businesses, banks, government. Two ownership verticals: vehicles proven and running, real estate the next logical application. The line at the bottom is the evidence — live since August 2025, real transactions, under Central Bank of Jordan sandbox supervision." style="background:radial-gradient(1300px 780px at 12% -16%,rgba(16,123,192,.24),transparent 62%),radial-gradient(1000px 640px at 94% 106%,rgba(0,179,186,.12),transparent 62%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:48px 88px 0;flex:none">
+    <img src="assets/edamana-logo.svg" alt="eDamana" style="height:36px;width:auto;display:block">
+    <div style="display:flex;align-items:center;gap:18px;font-size:22px;letter-spacing:.22em;font-weight:600;color:#7E99B6">
+      <span>MINISTERIAL BRIEFING</span>
+      <span style="width:28px;height:1px;background:rgba(255,255,255,.2)"></span>
+      <span style="color:#CBDCEC">02</span>
+    </div>
+  </div>
+
+  <div data-anim="up" style="--d:.1s;flex:none;padding:56px 88px 0;font-size:68px;line-height:1.06;letter-spacing:-.022em;font-weight:700">ONE INFRASTRUCTURE.<br><span style="font-weight:300;color:#CBDCEC">MULTIPLE OWNERSHIP TRANSACTIONS.</span></div>
+
+  <div style="flex:1;min-height:0"></div>
+
+  <div style="flex:none;display:flex;justify-content:center">
+    <div style="position:relative;width:1200px;height:300px">
+      <svg viewBox="0 0 1200 160" style="position:absolute;left:0;top:0;width:1200px;height:160px">
+        <g fill="none" stroke="rgba(255,255,255,.32)" stroke-width="1.3">
+          <path data-anim="draw" style="--d:.92s" pathLength="100" stroke-dasharray="100" d="M150 62C150 116 600 96 600 150"></path>
+          <path data-anim="draw" style="--d:.99s" pathLength="100" stroke-dasharray="100" d="M450 62C450 116 600 112 600 150"></path>
+          <path data-anim="draw" style="--d:1.06s" pathLength="100" stroke-dasharray="100" d="M750 62C750 116 600 112 600 150"></path>
+          <path data-anim="draw" style="--d:1.13s" pathLength="100" stroke-dasharray="100" d="M1050 62C1050 116 600 96 600 150"></path>
+        </g>
+        <circle data-anim="fade" style="--d:1.18s" cx="600" cy="150" r="5" fill="#35DCE2"></circle>
+      </svg>
+
+      <div data-anim="up" style="--d:.5s;position:absolute;left:10px;top:0;width:280px;text-align:center;font-size:32px;letter-spacing:.16em;font-weight:700;color:#CBDCEC">CITIZENS</div>
+      <div data-anim="up" style="--d:.58s;position:absolute;left:310px;top:0;width:280px;text-align:center;font-size:32px;letter-spacing:.16em;font-weight:700;color:#CBDCEC">BUSINESSES</div>
+      <div data-anim="up" style="--d:.66s;position:absolute;left:610px;top:0;width:280px;text-align:center;font-size:32px;letter-spacing:.16em;font-weight:700;color:#CBDCEC">BANKS</div>
+      <div data-anim="up" style="--d:.74s;position:absolute;left:910px;top:0;width:280px;text-align:center;font-size:32px;letter-spacing:.16em;font-weight:700;color:#CBDCEC">GOVERNMENT</div>
+
+      <div data-anim="fade" style="--d:1.2s;position:absolute;left:300px;top:110px;width:600px;height:190px;background:radial-gradient(400px 170px at 50% 46%,rgba(0,179,186,.3),transparent 70%);pointer-events:none"></div>
+      <div style="position:absolute;left:0;top:168px;width:1200px;display:flex;flex-direction:column;align-items:center;gap:22px">
+        <img data-anim="scale" style="--d:1.22s;height:62px;width:auto;display:block" src="assets/edamana-logo.svg" alt="eDamana">
+        <div data-anim="fade" style="--d:1.36s;font-size:31px;letter-spacing:.2em;font-weight:700;color:#35DCE2">SECURE TRANSACTION INFRASTRUCTURE</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:1;min-height:0"></div>
+
+  <div style="flex:none;display:flex;align-items:center;justify-content:center;gap:200px;padding:0 88px">
+    <div data-anim="up" style="--d:1.6s;text-align:right">
+      <div style="font-size:88px;font-weight:700;letter-spacing:-.03em;line-height:1">VEHICLES</div>
+      <div data-anim="fade" style="--d:1.74s;display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:16px;font-size:30px;letter-spacing:.16em;font-weight:700;color:#35DCE2">
+        <span data-anim="pulse" style="--d:2.1s;width:12px;height:12px;border-radius:50%;background:#35DCE2;display:block"></span>LIVE TODAY
+      </div>
+    </div>
+
+    <div data-anim="up" style="--d:2.15s">
+      <div style="font-size:84px;font-weight:600;letter-spacing:-.03em;line-height:1;color:#8CA6C0">REAL ESTATE</div>
+      <div data-anim="fade" style="--d:2.28s;margin-top:16px;font-size:30px;letter-spacing:.16em;font-weight:700;color:#8FA9C4">NEXT</div>
+    </div>
+  </div>
+
+  <div style="flex:1;min-height:0"></div>
+
+  <div data-anim="fade" style="--d:2.55s;flex:none;display:flex;align-items:center;justify-content:center;gap:24px;padding:0 88px 64px;font-size:26px;letter-spacing:.12em;font-weight:600;color:#7E99B6">
+    <span>LIVE 25 AUG 2025</span>
+    <span style="color:#00B3BA">•</span>
+    <span>REAL TRANSACTIONS</span>
+    <span style="color:#00B3BA">•</span>
+    <span>CBJ REGULATORY SANDBOX</span>
+  </div>
+</section>
+
+<section data-label="One engine" data-screen-label="02" data-speaker-notes="The key point for the Ministry: citizens do not need a separate eDamana app. Three front-end channels, one backend engine. The Sanad card on the right is a conceptual illustration only — it is not live inside Sanad today." style="background:radial-gradient(1200px 720px at 88% -12%,rgba(16,123,192,.24),transparent 62%),radial-gradient(900px 600px at 4% 108%,rgba(0,179,186,.12),transparent 62%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:row;align-items:stretch;overflow:hidden">
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;padding:48px 56px 52px 88px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex:none">
+      <img src="assets/edamana-logo.svg" alt="eDamana" style="height:36px;width:auto;display:block">
+      <div style="display:flex;align-items:center;gap:18px;font-size:22px;letter-spacing:.22em;font-weight:600;color:#7E99B6">
+        <span>DEPLOYMENT FLEXIBILITY</span>
+        <span style="width:28px;height:1px;background:rgba(255,255,255,.2)"></span>
+        <span style="color:#CBDCEC">03</span>
+      </div>
+    </div>
+
+    <div data-anim="up" style="--d:.05s;flex:none;padding-top:34px;font-size:68px;line-height:1.06;letter-spacing:-.022em;font-weight:700">ONE ENGINE.<br><span style="font-weight:300;color:#CBDCEC">MULTIPLE WAYS TO DEPLOY IT.</span></div>
+
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0;padding-top:40px">
+      <div style="display:flex;gap:20px">
+        <div data-anim="up" style="--d:.24s;flex:1;min-width:0;height:158px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.045);padding:0 26px;display:flex;flex-direction:column;justify-content:center;gap:12px">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-.015em">eDamana</div>
+          <div style="font-size:26px;font-weight:500;color:#9BB3CB">Standalone</div>
+        </div>
+        <div data-anim="up" style="--d:.34s;flex:1;min-width:0;height:158px;border:1px solid rgba(0,179,186,.55);background:linear-gradient(160deg,rgba(0,179,186,.18),rgba(16,123,192,.06));padding:0 26px;display:flex;flex-direction:column;justify-content:center;gap:12px">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-.015em">SANAD</div>
+          <div style="font-size:26px;font-weight:500;color:#CBDCEC">Government experience</div>
+        </div>
+        <div data-anim="up" style="--d:.44s;flex:1;min-width:0;height:158px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.045);padding:0 26px;display:flex;flex-direction:column;justify-content:center;gap:12px">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-.015em">Banks &amp; Dealers</div>
+          <div style="font-size:26px;font-weight:500;color:#9BB3CB">Partner channels</div>
+        </div>
+      </div>
+
+      <svg viewBox="0 0 1288 50" style="width:100%;height:50px;display:block">
+        <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1">
+          <path data-anim="draw" style="--d:.52s" pathLength="100" stroke-dasharray="100" d="M208 0V25M644 0V25M1080 0V25"></path>
+          <path data-anim="draw" style="--d:.62s" pathLength="100" stroke-dasharray="100" d="M208 25H1080"></path>
+          <path data-anim="draw" style="--d:.76s" pathLength="100" stroke-dasharray="100" stroke="rgba(0,179,186,.6)" d="M644 25V50"></path>
+        </g>
+        <g fill="#35DCE2" data-anim="fade" style="--d:.8s"><circle cx="208" cy="25" r="3"></circle><circle cx="644" cy="25" r="3"></circle><circle cx="1080" cy="25" r="3"></circle></g>
+      </svg>
+
+      <div data-anim="up" style="--d:.7s;border:1px solid rgba(0,179,186,.45);background:linear-gradient(120deg,rgba(13,48,83,.95),rgba(9,32,58,.55));padding:30px 34px 34px;box-shadow:0 34px 90px -50px rgba(0,179,186,.7)">
+        <div style="display:flex;align-items:center;gap:22px;margin-bottom:26px">
+          <img src="assets/edamana-logo.svg" alt="eDamana" style="height:38px;width:auto;display:block">
+          <div style="width:1px;height:34px;background:rgba(255,255,255,.14)"></div>
+          <div style="font-size:32px;font-weight:700;letter-spacing:.08em">ONE ENGINE</div>
+        </div>
+        <div style="display:flex;align-items:center">
+          <div data-anim="scale" style="--d:.95s;flex:1;height:92px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;padding:0 10px"><span style="font-size:27px;font-weight:700;letter-spacing:.04em">IDENTIFY</span></div>
+          <svg viewBox="0 0 26 8" style="width:26px;height:8px;flex:none"><path d="M2 4h18M17 1l3.5 3-3.5 3" stroke="rgba(255,255,255,.34)" stroke-width="1.2" fill="none"></path></svg>
+          <div data-anim="scale" style="--d:1.03s;flex:1;height:92px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;padding:0 10px"><span style="font-size:27px;font-weight:700;letter-spacing:.04em">VERIFY</span></div>
+          <svg viewBox="0 0 26 8" style="width:26px;height:8px;flex:none"><path d="M2 4h18M17 1l3.5 3-3.5 3" stroke="rgba(255,255,255,.34)" stroke-width="1.2" fill="none"></path></svg>
+          <div data-anim="scale" style="--d:1.11s;flex:1;height:92px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;padding:0 10px"><span style="font-size:27px;font-weight:700;letter-spacing:.04em">SECURE</span></div>
+          <svg viewBox="0 0 26 8" style="width:26px;height:8px;flex:none"><path d="M2 4h18M17 1l3.5 3-3.5 3" stroke="rgba(255,255,255,.34)" stroke-width="1.2" fill="none"></path></svg>
+          <div data-anim="scale" style="--d:1.19s;flex:1;height:92px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;padding:0 10px"><span style="font-size:27px;font-weight:700;letter-spacing:.04em">CONFIRM</span></div>
+          <svg viewBox="0 0 26 8" style="width:26px;height:8px;flex:none"><path d="M2 4h18M17 1l3.5 3-3.5 3" stroke="rgba(255,255,255,.34)" stroke-width="1.2" fill="none"></path></svg>
+          <div data-anim="scale" style="--d:1.27s;flex:1;height:92px;border:1px solid rgba(0,179,186,.6);background:rgba(0,179,186,.16);display:flex;align-items:center;justify-content:center;padding:0 10px"><span style="font-size:27px;font-weight:700;letter-spacing:.04em;color:#7FE3E8">RELEASE</span></div>
+        </div>
+      </div>
+
+      <div data-anim="up" style="--d:2.15s;margin-top:auto;padding-top:38px;font-size:46px;font-weight:700;letter-spacing:-.02em;line-height:1.2">THE FRONT END CAN CHANGE.<br><span style="color:#35DCE2">THE TRANSACTION ENGINE DOES NOT.</span></div>
+    </div>
+  </div>
+
+  <div style="flex:none;width:578px;padding:38px 88px 38px 0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <div data-anim="scale" style="--d:1.55s;position:relative;width:480px;height:896px;border-radius:54px;background:#0B1B2E;border:1px solid rgba(255,255,255,.16);padding:13px;box-shadow:0 50px 130px -40px rgba(0,0,0,.85)">
+        <div style="position:relative;border-radius:43px;overflow:hidden;height:870px;background:transparent">
+          <img src="assets/sanad-home.png" alt="Sanad application" style="width:100%;display:block">
+          <div data-anim="fade" style="--d:1.62s;position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,24,46,.28),rgba(6,24,46,.78))"></div>
+          <div style="position:absolute;top:24px;right:24px;padding:10px 18px;border-radius:2px;background:rgba(6,24,46,.9);border:1px solid rgba(53,220,226,.55);font-size:22px;letter-spacing:.18em;font-weight:700;color:#35DCE2">CONCEPT</div>
+          <div data-anim="sheet" style="--d:1.75s;position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:34px 34px 0 0;padding:22px 32px 32px;color:#0A2540;direction:rtl;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;box-shadow:0 -20px 50px -20px rgba(0,0,0,.4)">
+            <div style="width:64px;height:6px;border-radius:3px;background:#D7DEE7;margin:0 auto 24px"></div>
+            <div style="display:flex;align-items:center;gap:18px;margin-bottom:22px">
+              <div style="flex:none;width:72px;height:72px;border-radius:19px;background:#EAF2FF;display:flex;align-items:center;justify-content:center">
+                <svg viewBox="0 0 24 24" fill="none" style="width:38px;height:38px"><path d="M3 13.5 4.6 8.3A2 2 0 0 1 6.5 7h11a2 2 0 0 1 1.9 1.3L21 13.5" stroke="#1B6FE0" stroke-width="1.5" stroke-linecap="round"></path><rect x="2.6" y="13.4" width="18.8" height="5.2" rx="1.6" stroke="#1B6FE0" stroke-width="1.5"></rect><circle cx="7" cy="18.6" r="1.5" fill="#1B6FE0"></circle><circle cx="17" cy="18.6" r="1.5" fill="#1B6FE0"></circle></svg>
+              </div>
+              <div>
+                <div style="font-size:33px;font-weight:700;line-height:1.3">خدمات المركبات</div>
+                <div style="font-size:24px;color:#44586C;line-height:1.4">الدفع الآمن ونقل الملكية</div>
+              </div>
+            </div>
+            <div style="height:1px;background:#EDF1F5;margin-bottom:22px"></div>
+            <div style="font-size:21px;color:#44586C;margin-bottom:24px;line-height:1.5">التحقق من الهوية · تأمين المبلغ · تأكيد نقل الملكية</div>
+            <div style="height:76px;border-radius:16px;background:#1B6FE0;color:#fff;display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:600">ابدأ المعاملة الآمنة</div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;font-size:20px;color:#5A6B7E">
+              <span>مدعوم من</span><span style="font-weight:700;color:#0A2540;direction:ltr">eDamana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-anim="fade" style="--d:1.95s;margin-top:24px;text-align:center;font-size:28px;font-weight:500;line-height:1.35;color:#9BB3CB">Conceptual service experience.<br>Not currently live inside Sanad.</div>
+    </div>
+  
+</section>
+
+<section data-label="Multiple banks" data-screen-label="04" data-speaker-notes="One flow, left to right. Buyer enters through Sanad. eDamana orchestrates. DVLD returns the official ownership confirmation. Payment infrastructure and the banking layer secure and settle. Seller receives the proceeds. All of that already runs — Arab Bank is the current escrow host. Then the only change for the national model: that single escrow host becomes a participating banking network. Nothing else in the flow changes. Present the network as proposed, not deployed." style="background:radial-gradient(1300px 760px at 8% -14%,rgba(16,123,192,.22),transparent 60%),radial-gradient(1100px 700px at 100% 104%,rgba(0,179,186,.13),transparent 60%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:48px 88px 0;flex:none">
+    <img src="assets/edamana-logo.svg" alt="eDamana" style="height:36px;width:auto;display:block">
+    <div style="display:flex;align-items:center;gap:18px;font-size:22px;letter-spacing:.22em;font-weight:600;color:#7E99B6">
+      <span>SETTLEMENT ARCHITECTURE</span>
+      <span style="width:28px;height:1px;background:rgba(255,255,255,.2)"></span>
+      <span style="color:#CBDCEC">04</span>
+    </div>
+  </div>
+
+  <div data-anim="up" style="--d:.05s;flex:none;padding:30px 88px 0;font-size:66px;line-height:1.06;letter-spacing:-.022em;font-weight:700">ONE PROVEN FLOW.<br><span style="font-weight:300;color:#CBDCEC">BUILT TO SCALE NATIONALLY.</span></div>
+
+  <div style="flex:1;display:flex;align-items:flex-start;justify-content:center;padding:28px 88px 0;min-height:0">
+    <div style="position:relative;width:1744px;height:620px;flex:none">
+      <svg viewBox="0 0 1744 620" style="position:absolute;left:0;top:0;width:1744px;height:620px">
+        <g fill="none" stroke="rgba(255,255,255,.26)" stroke-width="1.4">
+          <path data-anim="draw" style="--d:.34s" pathLength="100" stroke-dasharray="100" d="M70 250H320"></path>
+          <path data-anim="draw" style="--d:.46s" pathLength="100" stroke-dasharray="100" d="M320 250H620"></path>
+          <path data-anim="draw" style="--d:.6s" pathLength="100" stroke-dasharray="100" d="M620 250H940"></path>
+          <path data-anim="draw" style="--d:.74s" pathLength="100" stroke-dasharray="100" d="M940 250H1300"></path>
+          <path data-anim="draw" style="--d:.9s" pathLength="100" stroke-dasharray="100" d="M1300 250H1660"></path>
+        </g>
+        <g fill="none" stroke="rgba(53,220,226,.6)" stroke-width="1.6">
+          <path data-anim="draw" style="--d:1.3s" pathLength="100" stroke-dasharray="100" d="M940 224V150Q940 118 908 118H652Q620 118 620 150V224M614 206l6 12 6-12"></path>
+        </g>
+        <g fill="none" stroke="#7FE3E8" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="10 40">
+          <path data-anim="flow" style="--d:1.8s" d="M940 224V150Q940 118 908 118H652Q620 118 620 150V224"></path>
+          <path data-anim="flow" style="--d:1.95s" d="M620 250H1660"></path>
+        </g>
+        <g fill="none" stroke="rgba(0,179,186,.55)" stroke-width="1.4">
+          <path data-anim="draw" style="--d:2.1s" pathLength="100" stroke-dasharray="100" d="M1300 368V426Q1300 440 1276 440H1214Q1190 440 1190 454V476"></path>
+          <path data-anim="draw" style="--d:2.16s" pathLength="100" stroke-dasharray="100" d="M1300 368V426Q1300 440 1324 440H1386Q1410 440 1410 454V476"></path>
+          <path data-anim="draw" style="--d:2.3s" pathLength="100" stroke-dasharray="100" d="M1190 526V546"></path>
+          <path data-anim="draw" style="--d:2.38s" pathLength="100" stroke-dasharray="100" d="M1410 526V546"></path>
+        </g>
+        <g fill="#35DCE2">
+          <circle data-anim="fade" style="--d:.3s" cx="70" cy="250" r="7"></circle>
+          <circle data-anim="fade" style="--d:.42s" cx="320" cy="250" r="7"></circle>
+          <circle data-anim="fade" style="--d:.56s" cx="620" cy="250" r="11"></circle>
+          <circle data-anim="fade" style="--d:.7s" cx="940" cy="250" r="7"></circle>
+          <circle data-anim="fade" style="--d:.96s" cx="1300" cy="250" r="11"></circle>
+          <circle data-anim="fade" style="--d:1.1s" cx="1660" cy="250" r="7"></circle>
+        </g>
+      </svg><div data-anim="fade" style="--d: .84s; position: absolute; left: 930px; top: 367px; width: 240px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <img style="filter:brightness(0) invert(1);height:32px;width:auto;display:block" src="assets/efawateercom-logo.png" alt="eFAWATEERcom"><div style="font-size:26px;font-weight:500;color:#8FA9C4;white-space:nowrap">Payment infrastructure</div>
+        
+      </div>
+
+      <div data-anim="fade" style="--d:.2s;position:absolute;left:0;top:0;display:flex;align-items:center;gap:16px">
+        <span style="font-size:24px;letter-spacing:.2em;font-weight:800;color:#06182E;background:#35DCE2;padding:7px 15px">TODAY</span>
+        <span style="font-size:24px;letter-spacing:.16em;font-weight:700;color:#9BB3CB">PROVEN</span>
+      </div>
+
+      <div data-anim="fade" style="--d:1.45s;position:absolute;left:570px;top:58px;width:420px;text-align:center;font-size:27px;letter-spacing:.1em;font-weight:700;color:#35DCE2;white-space:nowrap">OFFICIAL CONFIRMATION</div>
+
+      <div data-anim="up" style="--d:.96s;position:absolute;left:1120px;top:92px;width:360px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <img style="filter:brightness(0) invert(1);height:34px;width:auto;display:block" src="assets/arab-bank-logo.png" alt="Arab Bank">
+        <div style="font-size:25px;letter-spacing:.1em;font-weight:700;color:#9BB3CB;white-space:nowrap">CURRENT ESCROW HOST</div>
+      </div>
+
+      <div data-anim="up" style="--d:.3s;position:absolute;left:-50px;top:278px;width:240px;text-align:center">
+        <div style="font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1">BUYER</div>
+      </div>
+      <div data-anim="up" style="--d:.42s;position:absolute;left:200px;top:278px;width:240px;text-align:center">
+        <div style="font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1">SANAD</div>
+        <div style="font-size:26px;font-weight:500;color:#9BB3CB;margin-top:8px">Identity</div>
+      </div>
+      <div data-anim="up" style="--d:.56s;position:absolute;left:500px;top:278px;width:240px;text-align:center">
+        <div style="font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1">eDAMANA</div>
+        <div style="font-size:26px;font-weight:500;color:#9BB3CB;margin-top:8px">Orchestrate</div>
+      </div>
+      <div data-anim="up" style="--d:.7s;position:absolute;left:820px;top:278px;width:240px;text-align:center">
+        <div style="font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1">DVLD</div>
+        <div style="font-size:26px;font-weight:500;color:#9BB3CB;margin-top:8px">Confirm</div>
+      </div>
+      <div data-anim="up" style="--d:.96s;position:absolute;left:1180px;top:278px;width:240px;text-align:center">
+        <div style="font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1">BANKING</div>
+        <div style="font-size:26px;font-weight:500;color:#9BB3CB;margin-top:8px">Secure + Settle</div>
+      </div>
+      <div data-anim="up" style="--d:1.1s;position:absolute;left:1540px;top:278px;width:240px;text-align:center">
+        <div style="font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1">SELLER</div>
+      </div>
+
+      
+
+      <div data-anim="fade" style="--d:2s;position:absolute;left:1380px;top:196px;width:200px;text-align:center;font-size:26px;letter-spacing:.12em;font-weight:800;color:#7FE3E8">RELEASE</div>
+
+      <div data-anim="up" style="--d: 2.05s; position: absolute; left: 385px; top: 480px; width: 660px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 16px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <span style="font-size:22px;letter-spacing:.14em;font-weight:700;color:#35DCE2;border:1px solid rgba(0,179,186,.6);padding:6px 12px">PROPOSED</span>
+          <span style="font-size:34px;font-weight:700;letter-spacing:-.01em;color:#fff;white-space:nowrap">MULTI-BANK NETWORK</span>
+        </div>
+        <div data-anim="fade" style="--d:2.6s;font-size:25px;letter-spacing:.08em;font-weight:700;color:#7FE3E8;white-space:nowrap">FASTER RELEASE WHERE SUPPORTED</div>
+      </div>
+
+      <div data-anim="scale" style="--d:2.22s;position:absolute;left:1090px;top:476px;width:200px;height:50px;border:1px solid rgba(0,179,186,.6);background:rgba(0,179,186,.16);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:700;letter-spacing:.02em">Arab Bank</div>
+      <div data-anim="scale" style="--d:2.3s;position:absolute;left:1310px;top:476px;width:200px;height:50px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:600;letter-spacing:.04em;color:#CBDCEC">BANK B</div>
+      <div data-anim="scale" style="--d:2.38s;position:absolute;left:1090px;top:546px;width:200px;height:50px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:600;letter-spacing:.04em;color:#CBDCEC">BANK C</div>
+      <div data-anim="scale" style="--d:2.46s;position:absolute;left:1310px;top:546px;width:200px;height:50px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:600;letter-spacing:.04em;color:#CBDCEC">BANK D</div>
+    </div>
+  </div>
+
+  <div data-anim="up" style="--d:2.75s;flex:none;padding:16px 88px 44px;font-size:48px;font-weight:700;letter-spacing:-.02em;line-height:1.16">SAME PROVEN TRANSACTION.<br><span style="color:#35DCE2">EXPANDED BANKING PARTICIPATION.</span></div>
+</section>
+
+<section data-label="Cash or financed" data-screen-label="05" data-speaker-notes="This proves eDamana is a transaction control layer, not a wallet. Cash on the left: full funds secured, ownership transfers, funds release. Financed on the right: the buyer's down payment plus a digital letter of guarantee from the financing bank — the bank commits without releasing the financed amount up front. Ownership transfer and mortgage registration happen, DVLD confirms, and only then does eDamana release. Same control logic, different financial commitment." style="background:radial-gradient(1200px 720px at 10% -14%,rgba(16,123,192,.2),transparent 62%),radial-gradient(1000px 640px at 96% 106%,rgba(0,179,186,.12),transparent 62%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:48px 88px 0;flex:none">
+    <img src="assets/edamana-logo.svg" alt="eDamana" style="height:36px;width:auto;display:block">
+    <div style="display:flex;align-items:center;gap:18px;font-size:22px;letter-spacing:.22em;font-weight:600;color:#7E99B6">
+      <span>TRANSACTION MODELS</span>
+      <span style="width:28px;height:1px;background:rgba(255,255,255,.2)"></span>
+      <span style="color:#CBDCEC">05</span>
+    </div>
+  </div>
+
+  <div style="flex:none;display:flex;align-items:flex-end;justify-content:space-between;gap:56px;padding:34px 88px 0">
+    <div data-anim="up" style="--d:.05s;font-size:64px;line-height:1.06;letter-spacing:-.022em;font-weight:700">BUILT FOR HOW VEHICLES<br><span style="font-weight:300;color:#CBDCEC">ARE ACTUALLY BOUGHT.</span></div>
+    
+  </div>
+
+  <div style="flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 88px 0">
+    <div style="display:flex;gap:120px;align-items:stretch">
+      <div style="width:590px;display:flex;flex-direction:column;align-items:center;text-align:center">
+        <div data-anim="fade" style="--d:.34s;font-size:32px;letter-spacing:.2em;font-weight:700;color:#9BB3CB">CASH</div>
+        <div data-anim="up" style="--d:.42s;margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="font-size:76px;font-weight:700;letter-spacing:-.03em;line-height:1">100%</div>
+          <div style="font-size:32px;font-weight:600;letter-spacing:.06em;color:#CBDCEC">FUNDS SECURED</div>
+        </div>
+        <div style="flex:1;min-height:8px"></div>
+        <svg data-anim="fade" style="--d:.56s;width:12px;height:30px;flex:none" viewBox="0 0 12 30"><path d="M6 0v21M1 15l5 6 5-6" stroke="rgba(255,255,255,.34)" stroke-width="1.3" fill="none"></path></svg>
+        <div data-anim="up" style="--d:.64s;font-size:38px;font-weight:600;letter-spacing:-.01em;line-height:1.2;white-space:nowrap">Ownership transfer</div>
+        <svg data-anim="fade" style="--d:.74s;width:12px;height:30px;flex:none" viewBox="0 0 12 30"><path d="M6 0v21M1 15l5 6 5-6" stroke="rgba(255,255,255,.34)" stroke-width="1.3" fill="none"></path></svg>
+        <div data-anim="fade" style="--d:.82s;display:flex;align-items:center;gap:14px">
+          <span data-anim="pulse" style="--d:1.1s;width:11px;height:11px;border-radius:50%;background:#35DCE2;display:block;flex:none"></span>
+          <span style="font-size:27px;letter-spacing:.14em;font-weight:700;color:#35DCE2;white-space:nowrap">DVLD CONFIRMS</span>
+        </div>
+        <svg data-anim="fade" style="--d:.94s;width:12px;height:30px;flex:none" viewBox="0 0 12 30"><path d="M6 0v21M1 15l5 6 5-6" stroke="rgba(255,255,255,.34)" stroke-width="1.3" fill="none"></path></svg>
+        <div data-anim="up" style="--d:1.02s;font-size:34px;font-weight:800;letter-spacing:.1em;color:#7FE3E8;white-space:nowrap">RELEASE</div>
+      </div>
+
+      <div style="width:590px;display:flex;flex-direction:column;align-items:center;text-align:center">
+        <div data-anim="fade" style="--d:1.18s;font-size:32px;letter-spacing:.2em;font-weight:700;color:#35DCE2">FINANCED</div>
+        <div data-anim="up" style="--d:1.26s;margin-top:18px;font-size:38px;font-weight:600;letter-spacing:-.01em">Down payment</div>
+        <div data-anim="fade" style="--d:1.34s;margin:6px 0;font-size:32px;font-weight:700;color:#7FE3E8">+</div>
+        <div data-anim="scale" style="--d:1.46s;width:100%;border:2px solid rgba(0,179,186,.8);background:rgba(0,179,186,.16);padding:16px 30px;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 30px 80px -36px rgba(0,179,186,.95)">
+          <div style="font-size:22px;letter-spacing:.16em;font-weight:700;color:#7FE3E8">FINANCING BANK COMMITMENT</div>
+          <div style="font-size:38px;font-weight:700;letter-spacing:-.022em;line-height:1.08">DIGITAL LETTER<br>OF GUARANTEE</div>
+        </div>
+        <svg data-anim="fade" style="--d:1.62s;width:12px;height:30px;flex:none" viewBox="0 0 12 30"><path d="M6 0v21M1 15l5 6 5-6" stroke="rgba(255,255,255,.34)" stroke-width="1.3" fill="none"></path></svg>
+        <div data-anim="up" style="--d:1.7s;font-size:38px;font-weight:600;letter-spacing:-.01em;line-height:1.2;white-space:nowrap">Ownership <span style="color:#7FE3E8">+</span> mortgage</div>
+        <svg data-anim="fade" style="--d:1.8s;width:12px;height:30px;flex:none" viewBox="0 0 12 30"><path d="M6 0v21M1 15l5 6 5-6" stroke="rgba(255,255,255,.34)" stroke-width="1.3" fill="none"></path></svg>
+        <div data-anim="fade" style="--d:1.88s;display:flex;align-items:center;gap:14px">
+          <span data-anim="pulse" style="--d:2.16s;width:11px;height:11px;border-radius:50%;background:#35DCE2;display:block;flex:none"></span>
+          <span style="font-size:27px;letter-spacing:.14em;font-weight:700;color:#35DCE2;white-space:nowrap">DVLD CONFIRMS</span>
+        </div>
+        <svg data-anim="fade" style="--d:2s;width:12px;height:30px;flex:none" viewBox="0 0 12 30"><path d="M6 0v21M1 15l5 6 5-6" stroke="rgba(255,255,255,.34)" stroke-width="1.3" fill="none"></path></svg>
+        <div data-anim="up" style="--d:2.08s;font-size:34px;font-weight:800;letter-spacing:.1em;color:#7FE3E8;white-space:nowrap">RELEASE</div>
+      </div>
+    </div>
+
+    <svg data-anim="fade" style="--d:2.24s;width:1300px;height:72px;flex:none;margin-top:6px" viewBox="0 0 1300 72">
+      <g fill="none" stroke="rgba(53,220,226,.55)" stroke-width="1.5">
+        <path data-anim="draw" style="--d:2.26s" pathLength="100" stroke-dasharray="100" d="M295 0C295 42 650 26 650 64"></path>
+        <path data-anim="draw" style="--d:2.34s" pathLength="100" stroke-dasharray="100" d="M1005 0C1005 42 650 26 650 64"></path>
+      </g>
+      <circle data-anim="fade" style="--d:2.44s" cx="650" cy="64" r="6" fill="#35DCE2"></circle>
+    </svg>
+
+    <div data-anim="up" style="--d:2.52s;display:flex;align-items:center;gap:28px;font-size:34px;font-weight:700;letter-spacing:.04em">
+      <span style="color:#CBDCEC">OFFICIAL CONFIRMATION</span>
+      <span style="color:#00B3BA;font-weight:400">→</span>
+      <span style="color:#7FE3E8">eDAMANA RELEASE</span>
+    </div>
+  </div>
+
+  <div data-anim="up" style="--d:2.78s;flex:none;padding:14px 88px 40px;font-size:48px;font-weight:700;letter-spacing:-.02em;line-height:1.16">SAME TRANSACTION CONTROL.<br><span style="color:#35DCE2">DIFFERENT FINANCIAL COMMITMENT.</span></div>
+</section>
+
+<section data-label="Implementation" data-screen-label="06" data-speaker-notes="The three implementation dimensions are already clear — citizen channel, banking model, government trigger. So the ask is not another conceptual discussion. It is one working session with MODEE, DVLD, the Central Bank and eDamana, to align the national model and define how eDamana contributes. Close on: the infrastructure exists; the next step is implementation." style="background:radial-gradient(1300px 780px at 12% -16%,rgba(16,123,192,.24),transparent 62%),radial-gradient(1100px 700px at 92% 104%,rgba(0,179,186,.14),transparent 62%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:48px 88px 0;flex:none">
+    <img src="assets/edamana-logo.svg" alt="eDamana" style="height:36px;width:auto;display:block">
+    <div style="display:flex;align-items:center;gap:18px;font-size:22px;letter-spacing:.22em;font-weight:600;color:#7E99B6">
+      <span>NEXT STEP</span>
+      <span style="width:28px;height:1px;background:rgba(255,255,255,.2)"></span>
+      <span style="color:#CBDCEC">06</span>
+    </div>
+  </div>
+
+  <div data-anim="up" style="--d:.05s;flex:none;padding:34px 88px 0;font-size:64px;line-height:1.06;letter-spacing:-.022em;font-weight:700">FROM PROVEN INFRASTRUCTURE<br><span style="font-weight:300;color:#CBDCEC">TO NATIONAL IMPLEMENTATION.</span></div>
+
+  <div style="flex:none;display:flex;gap:80px;padding:52px 160px 0">
+      <div data-anim="up" style="--d:.34s;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+        <div style="font-size:24px;letter-spacing:.2em;font-weight:700;color:#35DCE2">01</div>
+        <div style="font-size:25px;letter-spacing:.14em;font-weight:700;color:#7E99B6">CITIZEN EXPERIENCE</div>
+        <div style="font-size:42px;font-weight:700;letter-spacing:-.018em;line-height:1.1;white-space:nowrap">SANAD</div>
+      </div>
+      <div data-anim="up" style="--d:.46s;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+        <div style="font-size:24px;letter-spacing:.2em;font-weight:700;color:#35DCE2">02</div>
+        <div style="font-size:25px;letter-spacing:.14em;font-weight:700;color:#7E99B6">BANKING MODEL</div>
+        <div style="font-size:42px;font-weight:700;letter-spacing:-.018em;line-height:1.1">MULTI-BANK</div>
+      </div>
+      <div data-anim="up" style="--d:.58s;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+        <div style="font-size:24px;letter-spacing:.2em;font-weight:700;color:#35DCE2">03</div>
+        <div style="font-size:25px;letter-spacing:.14em;font-weight:700;color:#7E99B6">GOVERNMENT TRIGGER</div>
+        <div style="font-size:42px;font-weight:700;letter-spacing:-.018em;line-height:1.1">DVLD</div>
+      </div>
+  </div>
+
+  <div style="flex:none;display:flex;justify-content:center;padding-top:14px">
+    <svg data-anim="fade" style="--d:.72s;width:1300px;height:104px" viewBox="0 0 1300 104">
+      <g fill="none" stroke="rgba(255,255,255,.26)" stroke-width="1.3">
+        <path data-anim="draw" style="--d:.74s" pathLength="100" stroke-dasharray="100" d="M190 0C190 58 650 36 650 96"></path>
+        <path data-anim="draw" style="--d:.82s" pathLength="100" stroke-dasharray="100" d="M650 0V96"></path>
+        <path data-anim="draw" style="--d:.9s" pathLength="100" stroke-dasharray="100" d="M1110 0C1110 58 650 36 650 96"></path>
+      </g>
+      <circle data-anim="fade" style="--d:1s" cx="650" cy="96" r="6" fill="#35DCE2"></circle>
+    </svg>
+  </div>
+
+  <div style="flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 88px">
+    <div data-anim="fade" style="--d:1.12s;font-size:26px;letter-spacing:.28em;font-weight:800;color:#35DCE2">NEXT STEP</div>
+    <div data-anim="up" style="--d:1.28s;margin-top:22px;font-size:82px;font-weight:800;letter-spacing:-.03em;line-height:1">ONE JOINT WORKING SESSION</div>
+    <div data-anim="up" style="--d:1.5s;margin-top:28px;display:flex;align-items:center;gap:22px;font-size:40px;font-weight:700;letter-spacing:-.01em">
+      <span>MODEE</span><span style="color:#00B3BA;font-weight:400">+</span><span>DVLD</span><span style="color:#00B3BA;font-weight:400">+</span><span>CBJ</span><span style="color:#00B3BA;font-weight:400">+</span><span>eDamana</span>
+    </div>
+    <div data-anim="fade" style="--d:1.7s;margin-top:26px;font-size:28px;font-weight:500;line-height:1.4;color:#9BB3CB;max-width:1120px">Align the national model and define how eDamana can contribute to the solution.</div>
+  </div>
+
+  <div data-anim="up" style="--d:1.95s;flex:none;padding:0 88px 52px;font-size:48px;font-weight:700;letter-spacing:-.02em;line-height:1.16">THE INFRASTRUCTURE EXISTS.<br><span style="color:#35DCE2">THE NEXT STEP IS IMPLEMENTATION.</span></div>
+</section>
+
+<section data-label="Closing" data-screen-label="Closing" data-speaker-notes="Leave this on screen for the discussion. Say nothing over it beyond thanks." style="background:radial-gradient(1400px 820px at 22% 8%,rgba(16,123,192,.26),transparent 62%),radial-gradient(1000px 640px at 92% 100%,rgba(0,179,186,.13),transparent 62%),#06182E;color:#fff;font-family:Figtree,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden">
+  <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 110px">
+    <svg viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none">
+      <g stroke="rgba(53,220,226,.2)" stroke-width="1" fill="none">
+        <path data-anim="draw" style="--d:.4s" pathLength="100" stroke-dasharray="100" d="M170 230L440 150 660 300 560 560 700 760 400 840 180 700 170 440Z"></path>
+        <path data-anim="draw" style="--d:.6s" pathLength="100" stroke-dasharray="100" d="M1750 250L1500 170 1290 330 1380 580 1250 790 1560 850 1760 690Z"></path>
+        <path data-anim="draw" style="--d:.8s" pathLength="100" stroke-dasharray="100" d="M170 440L440 150M560 560L180 700M1380 580L1500 170M1760 690L1290 330"></path>
+      </g>
+      <g fill="#35DCE2" opacity=".55" data-anim="fade" style="--d:1s">
+        <circle cx="170" cy="230" r="4"></circle><circle cx="440" cy="150" r="4"></circle><circle cx="660" cy="300" r="4"></circle><circle cx="560" cy="560" r="5"></circle><circle cx="400" cy="840" r="4"></circle><circle cx="170" cy="440" r="5"></circle><circle cx="1750" cy="250" r="4"></circle><circle cx="1500" cy="170" r="4"></circle><circle cx="1290" cy="330" r="5"></circle><circle cx="1380" cy="580" r="4"></circle><circle cx="1560" cy="850" r="4"></circle><circle cx="1760" cy="690" r="5"></circle>
+      </g>
+    </svg>
+    <div style="position:relative;display:flex;flex-direction:column;align-items:center">
+      <img data-anim="up" style="--d:.1s;height:74px;width:auto;display:block;margin-bottom:62px" src="assets/edamana-logo.svg" alt="eDamana">
+      <div data-anim="up" style="--d:.28s;font-size:62px;line-height:1.14;letter-spacing:-.022em;font-weight:700">SECURE TRANSACTIONS.<br><span style="color:#35DCE2">CONNECTED INFRASTRUCTURE.</span></div>
+      <div data-anim="fade" style="--d:.55s;margin-top:44px;font-size:38px;font-weight:500;color:#CBDCEC">Vehicles today. Real estate next.</div>
+      <div data-anim="fade" style="--d:.7s;margin-top:24px;font-size:28px;line-height:1.5;color:#8FA9C4">Built in Jordan. Designed for national-scale ownership transactions.</div>
+    </div>
+  </div>
+  <div data-anim="fade" style="--d:.9s;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 110px 66px">
+    <div style="font-size:26px;letter-spacing:.22em;font-weight:600;color:#7E99B6">THANK YOU</div>
+    <div style="font-size:30px;font-weight:600;color:#CBDCEC">www.edamana.com</div>
+  </div>
+</section>
+
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
