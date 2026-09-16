@@ -1,97 +1,64 @@
 /* Present mode for the eDamana ministerial briefing.
-   Adds fullscreen entry, presenter key handling and click zones.
+   Adds fullscreen entry, presenter click zones and Escape handling.
    The deck's authored animations, timing and sequencing are untouched:
-   this file never rewrites a cue, it only lets the presenter skip ahead
-   to a slide's settled state before advancing. */
+   this file never rewrites a cue, never shortens one and never forces a
+   slide to its end state. Navigation is left to <deck-stage>, which owns
+   ArrowRight / ArrowLeft / Space / PageUp / PageDown and restarts a
+   slide's entrance animation every time that slide becomes active. */
 (function () {
   var stage = document.querySelector('deck-stage');
-  var bar = document.getElementById('pmBar');
   var zone = document.getElementById('pmZone');
   var btn = document.getElementById('pmBtn');
   if (!stage || !btn) return;
 
-  var entered = 0;      // timestamp the active slide appeared
-  var settleMs = 0;     // when its entrance animation finishes
-  var skipped = false;  // presenter already jumped this slide to settled
-
-  /* Longest authored cue on a slide: max --d plus the slowest entrance
-     duration (1.1s, the draw animation). Read from the DOM so it always
-     matches the slide as authored. */
-  function settleTime(section) {
-    if (!section) return 0;
-    var max = 0;
-    var nodes = section.querySelectorAll('[data-anim]');
-    for (var i = 0; i < nodes.length; i++) {
-      var d = parseFloat((nodes[i].style.getPropertyValue('--d') || '0').replace('s', '')) || 0;
-      if (d > max) max = d;
-    }
-    return (max + 1.1) * 1000;
-  }
-
   function activeSection() { return stage.querySelector('[data-deck-active]'); }
 
-  /* Deferred a frame: the stage clears data-deck-active on the outgoing
-     slide and sets it on the incoming one in the same mutation batch, so
-     reading synchronously can land on no active slide at all. */
-  var pending = 0;
-  function markEntered() {
-    if (pending) return;
-    pending = requestAnimationFrame(function () {
-      pending = 0;
-      var s = activeSection();
-      if (!s) { markEntered(); return; }
-      entered = Date.now();
-      settleMs = settleTime(s);
-      skipped = false;
-      s.removeAttribute('data-pm-settled');
-      s.style.removeProperty('animation-delay');
-    });
-  }
-
-  /* Freeze the entrance cues at their end state. Infinite motion (flow,
-     pulse) keeps running — only the staged entrances are fast-forwarded. */
-  function settleNow() {
-    var s = activeSection();
-    if (!s || skipped) return;
-    var nodes = s.querySelectorAll('[data-anim="up"],[data-anim="fade"],[data-anim="scale"],[data-anim="sheet"],[data-anim="draw"]');
+  /* Defensive: strip any inline animation override left on a slide by an
+     older build. Authored cues live in the stylesheet, never inline, so
+     anything found here would only be holding an entrance at its end
+     state. Touch the DOM only when there is actually something to clear. */
+  function clearOverrides(section) {
+    var nodes = section.querySelectorAll('[data-anim]');
     for (var i = 0; i < nodes.length; i++) {
-      nodes[i].style.animationDelay = '0s';
-      nodes[i].style.animationDuration = '1ms';
+      var st = nodes[i].style;
+      if (st.animationDelay || st.animationDuration || st.animationPlayState) {
+        st.removeProperty('animation-delay');
+        st.removeProperty('animation-duration');
+        st.removeProperty('animation-play-state');
+      }
     }
-    s.setAttribute('data-pm-settled', '');
-    skipped = true;
+    section.removeAttribute('data-pm-settled');
   }
 
-  function stillAnimating() {
-    return !skipped && settleMs > 0 && (Date.now() - entered) < settleMs;
+  /* Replay the active slide's authored entrance from the beginning by
+     re-running the stage's own activation: drop [data-deck-active],
+     flush style, put it back. The CSS cues are untouched — they simply
+     start over at their authored delays and durations. */
+  function replayActive() {
+    var s = activeSection();
+    if (!s) return;
+    clearOverrides(s);
+    s.removeAttribute('data-deck-active');
+    void s.offsetWidth; // force a style flush so the animations restart
+    s.setAttribute('data-deck-active', '');
   }
 
-  new MutationObserver(function () { markEntered(); })
-    .observe(stage, { subtree: true, attributes: true, attributeFilter: ['data-deck-active'] });
-  markEntered();
-
-  /* Right / Space: finish the current slide's build first, then advance.
-     Capture phase so this runs before the stage's own key handler; the
-     event is only swallowed when we actually consumed it as a skip. */
-  window.addEventListener('keydown', function (e) {
-    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
-    var k = e.key;
-    if (k === 'ArrowRight' || k === ' ' || k === 'Spacebar' || k === 'PageDown') {
-      if (stillAnimating()) { settleNow(); e.preventDefault(); e.stopImmediatePropagation(); }
-    } else if (k === 'Escape' && document.body.hasAttribute('data-presenting') && !document.fullscreenElement) {
-      exit();
-    }
-  }, true);
-
-  function advance(dir) {
-    if (dir > 0 && stillAnimating()) { settleNow(); return; }
-    dir > 0 ? stage.next() : stage.prev();
-  }
-
+  /* Presenter click zones: right side advances, far left goes back.
+     Both go straight through the stage, so the incoming slide plays its
+     entrance from the start. */
   zone.addEventListener('click', function (e) {
     var x = e.clientX / window.innerWidth;
-    if (x > 0.35) advance(1);
-    else if (x < 0.22) advance(-1);
+    if (x > 0.35) stage.next();
+    else if (x < 0.22) stage.prev();
+  });
+
+  /* Escape leaves present mode. The browser exits fullscreen on Escape by
+     itself (caught below via fullscreenchange), but exit() also runs here
+     so the interface comes back even when the fullscreen request was
+     refused and we are only presenting visually. */
+  window.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (document.body.hasAttribute('data-presenting')) exit();
   });
 
   function enter() {
@@ -101,7 +68,8 @@
     stage.setAttribute('no-rail', '');
     try { window.postMessage({ __omelette_presenting: true }, '*'); } catch (err) {}
     if (req) { var p = req.call(el); if (p && p.catch) p.catch(function () {}); }
-    markEntered();
+    // Same slide, animation from the top.
+    replayActive();
   }
 
   function exit() {
